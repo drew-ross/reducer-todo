@@ -8,14 +8,19 @@ const TodoList = () => {
     const [formValue, setFormValue] = useState('');
 
     const handleChanges = e => {
-        setFormValue(e.target.value.trim());
+        setFormValue(e.target.value);
     };
 
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch({ type: CREATE_TODO, payload: formValue });
+        dispatch({ type: CREATE_TODO, payload: formValue.trim() });
         setFormValue('');
     };
+
+    const handleClearCompleted = e => {
+        e.preventDefault();
+        dispatch({ type: CLEAR_COMPLETED });
+    }
 
     return (
         <div className='TodoList'>
@@ -28,8 +33,9 @@ const TodoList = () => {
                     value={formValue}
                     onChange={handleChanges}
                 />
-                <button>Add</button>
+                <button id='create-todo-btn'>Add</button>
             </form>
+            <button id='clear-completed-btn' onClick={handleClearCompleted}>Clear Completed</button>
 
             {state && state.map(todo => <Todo key={todo.id} dispatch={dispatch} todo={todo} />)}
         </div>

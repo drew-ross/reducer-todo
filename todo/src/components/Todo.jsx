@@ -26,8 +26,8 @@ const Todo = ({ todo, dispatch }) => {
     return (
         <div className={completedClassName}>
             <div className='todo-name'>{todo.item}</div>
-            <button className='todo-check' onClick={handleToggle}>Complete</button>
-            <button className='todo-delete' onClick={handleDelete}>Delete</button>
+            <button className='todo-toggle-btn' onClick={handleToggle}>Complete</button>
+            <button className='todo-delete-btn' onClick={handleDelete}>Delete</button>
         </div>
     );
 };
