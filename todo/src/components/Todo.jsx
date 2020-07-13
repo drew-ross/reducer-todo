@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { DELETE_TODO, TOGGLE_TODO } from '../reducers/todoReducer';
 
 const Todo = ({ todo, dispatch }) => {
+
+    const [completedClassName, setCompletedClassName] = useState('Todo');
+
+    useEffect(() => {
+        if (todo.completed) {
+            setCompletedClassName('Todo completed');
+        } else {
+            setCompletedClassName('Todo');
+        }
+    }, [todo.completed]);
 
     const handleToggle = e => {
         e.preventDefault();
@@ -14,10 +24,10 @@ const Todo = ({ todo, dispatch }) => {
     };
 
     return (
-        <div className='Todo'>
+        <div className={completedClassName}>
             <div className='todo-name'>{todo.item}</div>
-            <button className='todo-check'>Complete</button>
-            <button onClick={handleDelete} className='todo-delete'>Delete</button>
+            <button className='todo-check' onClick={handleToggle}>Complete</button>
+            <button className='todo-delete' onClick={handleDelete}>Delete</button>
         </div>
     );
 };
