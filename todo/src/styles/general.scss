@@ -1,0 +1,21 @@
+h1 {
+    font-size: 4rem;
+    font-family: $font-header;
+    color: white;
+}
+
+p, input, label, button {
+    font-size: 2rem;
+    font-family: $font-content;
+    color: $font-color;
+}
+
+//hide screen-reader-only content
+.hidden {
+	position: absolute;
+	left: -99999rem;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}

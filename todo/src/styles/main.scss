@@ -1,0 +1,93 @@
+.App {
+    margin: 0 auto;
+    min-height: 100vh;
+    width: 100vw;
+    top: 0;
+    background: $app-background;
+    position: absolute;
+}
+
+header {
+    margin: 3rem auto;
+    text-align: center;
+}
+
+.TodoList {
+    margin: 0 auto;
+    text-align: center;
+    width: 30%;
+    min-width: 500px;
+    @include flex(column, center, center);
+
+    input {
+        height: 4rem;
+        padding: 1rem;
+    }
+}
+
+button {
+    border: none;
+    margin: 1rem 2rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: .5rem;
+
+    &:hover {
+        background: $button-color;
+        color: white;
+    }
+}
+
+.Todo {
+    @include flex(row, space-between, center);
+    width: 100%;
+    border-radius: 0.5rem;
+    margin: 0.5rem 0;
+    overflow: hidden;
+    background: rgba(224, 224, 224, 0.61);
+
+    &.completed {
+        background: rgba(68, 68, 68, 0.466);
+        order: 1;
+
+        button {
+            color: white;
+        }
+    }
+
+    button {
+        margin: 0;
+        height: 5rem;
+        width: 6rem;
+        background: none;
+
+        &:hover {
+            color: white;
+        }
+
+        &:active {
+            filter: brightness(1.2);
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .todo-name {
+        text-align: left;
+        flex-grow: 100;
+        padding: 1rem;
+    }
+
+    .todo-toggle-btn {
+        &:hover {
+            background: $button-color;
+        }
+    }
+
+    .todo-delete-btn {
+        &:hover {
+            background: rgba(212, 74, 74, 0.8);
+        }
+    }
+}
