@@ -1,7 +1,7 @@
-const CREATE_TODO = 'CREATE_TODO';
-const DELETE_TODO = 'DELETE_TODO';
-const COMPLETE_TODO = 'COMPLETE_TODO';
-const CLEAR_COMPLETED = 'CLEAR_COMPLETED';
+export const CREATE_TODO = 'CREATE_TODO';
+export const DELETE_TODO = 'DELETE_TODO';
+export const TOGGLE_TODO = 'COMPLETE_TODO';
+export const CLEAR_COMPLETED = 'CLEAR_COMPLETED';
 
 export const todoInitialState = [{
     item: 'Learn about reducers',
@@ -11,6 +11,8 @@ export const todoInitialState = [{
 
 export const todoReducer = (state, action) => {
     switch (action.type) {
+        case DELETE_TODO:
+            return state.filter(todo => todo.id !== action.payload);
         default:
             return state;
     }

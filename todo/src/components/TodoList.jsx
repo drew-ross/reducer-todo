@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
 import Todo from './Todo';
-import { todoReducer, todoInitialState } from '../reducers/todoReducer';
+import { todoReducer, todoInitialState, CREATE_TODO, CLEAR_COMPLETED } from '../reducers/todoReducer';
 
 const TodoList = () => {
 
@@ -8,7 +8,7 @@ const TodoList = () => {
 
     return (
         <div className='TodoList'>
-            {state && state.map(todo => <Todo key={todo.id} todo={todo}/>)}
+            {state && state.map(todo => <Todo key={todo.id} dispatch={dispatch} todo={todo}/>)}
         </div>
     )
 };
