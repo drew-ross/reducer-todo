@@ -12,6 +12,20 @@ header {
     text-align: center;
 }
 
+.flex-row {
+    width: 100%;
+    @include flex(row, space-between, center);
+
+    form {
+        @include flex(row, space-between, center);
+        
+    }
+
+    input {
+        width: 80rem; 
+    }
+}
+
 .TodoList {
     margin: 0 auto;
     text-align: center;
@@ -27,7 +41,7 @@ header {
 
 button {
     border: none;
-    margin: 1rem 2rem;
+    margin-left: 1rem;
     padding: 0.75rem 1.5rem;
     border-radius: .5rem;
 
@@ -90,4 +104,9 @@ button {
             background: rgba(212, 74, 74, 0.8);
         }
     }
+}
+
+.empty-list-message {
+    margin-top: 20vh;
+    color: rgba(255, 255, 255, 0.541);
 }

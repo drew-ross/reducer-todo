@@ -22,22 +22,24 @@ const TodoList = () => {
     const handleClearCompleted = e => {
         e.preventDefault();
         dispatch({ type: CLEAR_COMPLETED });
-    }
+    };
 
     return (
         <div className='TodoList'>
-            <form onSubmit={handleSubmit}>
-                <label className='hidden' htmlFor='create-todo-input'>Add Todo</label>
-                <input
-                    id='create-todo-input'
-                    name='create-todo'
-                    type='text'
-                    value={formValue}
-                    onChange={handleChanges}
-                />
-                <button id='create-todo-btn'>Add</button>
-            </form>
-            <button id='clear-completed-btn' onClick={handleClearCompleted}>Clear Completed</button>
+            <div className='flex-row'>
+                <form onSubmit={handleSubmit}>
+                    <label className='hidden' htmlFor='create-todo-input'>Add Todo</label>
+                    <input
+                        id='create-todo-input'
+                        name='create-todo'
+                        type='text'
+                        value={formValue}
+                        onChange={handleChanges}
+                    />
+                    <button id='create-todo-btn'>Add</button>
+                </form>
+                <button id='clear-completed-btn' onClick={handleClearCompleted}>Clear</button>
+            </div>
 
             {state && state.map(todo => <Todo key={todo.id} dispatch={dispatch} todo={todo} />)}
 
