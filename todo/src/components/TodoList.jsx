@@ -13,8 +13,10 @@ const TodoList = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch({ type: CREATE_TODO, payload: formValue.trim() });
-        setFormValue('');
+        if (formValue !== '') {
+            dispatch({ type: CREATE_TODO, payload: formValue.trim() });
+            setFormValue('');
+        }
     };
 
     const handleClearCompleted = e => {
@@ -38,6 +40,8 @@ const TodoList = () => {
             <button id='clear-completed-btn' onClick={handleClearCompleted}>Clear Completed</button>
 
             {state && state.map(todo => <Todo key={todo.id} dispatch={dispatch} todo={todo} />)}
+
+            {(state.length < 1) && <p className='empty-list-message'>You're all done with your todos!</p>}
         </div>
     );
 };
